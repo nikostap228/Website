@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Добро пожаловать в ресторан, место, где вы можете насладиться вкусными блюдами и напитками в уютной атмосфере.">
+    <meta name="author" content="nikostapp">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Супер мега ресторан - Главная</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="scripts/popup.js"></script>
+    <!-- Подключение React и ReactDOM версии 18 -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel для преобразования JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+
+<!-- Всплывающая плашка -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <h2>Добро пожаловать!</h2>
+        <p>Вы попали на страницу лучшего в мире ресторана!</p>
+        <p>Введите ваш номер телефона для получения акций:</p>
+        <input type="text" id="phoneInput" maxlength="11" placeholder="Введите номер телефона" />
+        <p  id="errorMessage" class="error-message">Номер телефона некорректен</p>
+        <button id="closePopup">Закрыть</button>
+    </div>
+</div>
+
+    <!-- Контейнер для React -->
+    <div id="root"></div>
+
+    <!-- JSX скрипт с React-кодом -->
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="app-container">
+                    <header>
+                        <div className="logo">
+                            <img src="images/icon.png" alt="Cafe Delight Logo" />
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="menu.html">Меню</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>
+                                <li><a href="feedback.html">Обратная связь</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                    <main>
+                        <div className="hero">
+                            <img src="images/interier.jpg" alt="Интерьер" />
+                            <div className="hero-text">
+                                <h1>Добро пожаловать в Супер мега ресторан</h1>
+                                <p>Лучшие блюда и напитки в городе</p>
+                            </div>
+                        </div>
+
+                        <div className="two-column">
+                            <article className="about">
+                                <h2>О нас</h2>
+                                <p>Супер мега ресторан — это место, где вы можете насладиться вкусными блюдами и напитками в уютной атмосфере. Мы используем только свежие ингредиенты, чтобы гарантировать вам незабываемый опыт.</p>
+                                <p>Наш шеф-повар создает уникальные рецепты, которые удивляют и радуют гостей. Мы также предлагаем широкий выбор напитков, включая свежесваренный кофе и авторские коктейли.</p>
+                            </article>
+
+                            <aside className="sidebar">
+                                <h3>Часы работы</h3>
+                                <p>Пн-Пт: 8:00 - 22:00</p>
+                                <p>Сб-Вс: 9:00 - 23:00</p>
+                                <h3>Акции</h3>
+                                <p>При заказе от 1000 рублей — скидка 100%!</p>
+                            </aside>
+                        </div>
+                    </main>
+
+                    <footer>
+                        <p>&copy; 2024 Супер мега ресторан. Все права защищены.</p>
+                    </footer>
+                </div>
+            );
+        }
+
+        // Рендеринг компонента в контейнер root
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
+    <!-- Noscript -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=noscript.html">
+    </noscript>
+</body>
+</html>

@@ -1,0 +1,414 @@
+@charset "UTF-8";
+
+/* Общие стили */
+
+html, body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+main {
+    flex-grow: 1; /* Основной контент будет растягиваться на всё оставшееся место */
+}
+
+/* Стили для шапки */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0; /* Добавляем отступы сверху и снизу */
+    text-align: center;
+}
+
+header .logo img {
+    height: 50px;
+    vertical-align: middle;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 15px; /* Добавляем отступы между элементами меню */
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Стили для основного содержимого */
+main {
+    padding: 20px;
+}
+
+/* Опросы */
+.feedback-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feedback-page h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    color: #333;
+}
+
+.poll {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.poll h3 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #333;
+}
+
+.poll label {
+    display: block;
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #333;
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #333;
+}
+
+/* Результаты */
+.results {
+    margin-top: 15px;
+}
+
+.results h4 {
+    margin-bottom: 5px;
+    font-size: 18px;
+    color: #333;
+}
+
+.results p {
+    margin: 3px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+/* Стили для плашки */
+.popup {
+    display: none; /* Скрыта по умолчанию */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Убедимся, что плашка поверх всех элементов */
+}
+
+.popup-content {
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.popup-content h2 {
+    margin: 0 0 10px;
+}
+
+.popup-content button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.popup-content button:hover {
+    background-color: #555;
+}
+
+.popup-content input {
+    padding: 10px;
+    margin-bottom: 20px; /* Отступ снизу для поля ввода */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.error-message {
+    color: red; 
+    display: none;
+    font-size: 11px;
+}
+
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+/* Стили для баннера на главной странице */
+.hero {
+    position: relative; /* Используем position для размещения текста поверх изображения */
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute; /* Абсолютное позиционирование для текста */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 2.5em;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+}
+
+/* Двухколончатый контент */
+.two-column {
+    display: flex;
+    justify-content: space-between;
+}
+
+.about, .contact-info {
+    width: 65%;
+}
+
+.sidebar {
+    width: 30%;
+    background-color: #e0e0e0;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Размер карты */
+.map {
+    width: 100%;
+    height: auto;
+}
+
+/* Стили для секции "О нас" */
+.about h2, .contact-info h2, .menu h2 {
+    font-size: 2em;
+}
+
+.about p, .contact-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Стили для секции "Контакты" */
+.contact-info h2 {
+    font-size: 2em;
+}
+
+.contact-info p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.map img {
+    width: 100%;
+    height: auto;
+}
+
+/* Центрирование секции "Меню" */
+.menu h2 {
+    text-align: center;
+    justify-content: center;
+}
+
+/* Centering the menu items */
+.menu-items {
+    display: flex;
+    justify-content: center; /* Center the items */
+    flex-wrap: wrap;
+    gap: 20px; /* Adds spacing between items */
+}
+
+.menu-item {
+    width: 45%; /* Each item takes 45% width to fit two in one row */
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Space between rows */
+    justify-content: center;
+} 
+
+.menu-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    justify-content: center;
+}
+
+.menu-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.menu-item p {
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+/* Стили для подвала */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    margin-top: auto;
+}
+
+/* Медиа-запросы для адаптивного дизайна */
+@media only screen and (max-width: 768px) {
+    /* Меняем двухколончатый дизайн на одноколончатый */
+    .two-column {
+        flex-direction: column;
+    }
+
+    .about, .contact-info, .menu, .sidebar {
+        width: 80%;
+        margin: 0 auto; /* Центрируем контент */
+    }
+
+    /* Меняем расположение элементов меню */
+    .menu-item {
+        width: 48%; /* Два элемента в строке */
+        margin-right: 4%;
+    }
+
+    .menu-item:nth-child(2n) {
+        margin-right: 0; /* Убираем отступ у второго элемента в строке */
+    }
+
+    /* Уменьшаем размер текста на средних экранах */
+    .hero-text h1 {
+        font-size: 2em;
+    }
+
+    .hero-text p {
+        font-size: 1em;
+    }
+
+    .about h2, .contact-info h2, .menu h2 {
+        font-size: 1.8em;
+    }
+
+    .about p, .contact-info p, .menu-item h3 {
+        font-size: 1em;
+    }
+
+    .menu-item p {
+        font-size: 0.9em;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    /* Один элемент меню в строке */
+    .menu-item {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px; /* Space between rows */
+    }
+
+    /* Центрируем текст и изображения на маленьких экранах */
+    .hero-text h1, .hero-text p, .about h2, .about p, .contact-info h2, .contact-info p, .menu h2, .menu-item h3, .menu-item p {
+        text-align: center;
+    }
+
+    .hero img, .map img, .menu-item img {
+        display: block;
+        margin: 0 auto; /* Центрируем изображения */
+    }
+
+    /* Уменьшаем размер текста на маленьких экранах */
+    .hero-text h1 {
+        font-size: 1.5em;
+    }
+
+    .hero-text p {
+        font-size: 0.9em;
+    }
+
+    .about h2, .contact-info h2, .menu h2 {
+        font-size: 1.5em;
+    }
+
+    .about p, .contact-info p, .menu-item h3 {
+        font-size: 0.9em;
+    }
+
+    .menu-item p {
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    /* Уменьшаем размер текста на очень маленьких экранах */
+    .hero-text h1 {
+        font-size: 1.2em;
+    }
+
+    .hero-text p {
+        font-size: 0.8em;
+    }
+
+    .about h2, .contact-info h2, .menu h2 {
+        font-size: 1.2em;
+    }
+
+    .about p, .contact-info p, .menu-item h3 {
+        font-size: 0.8em;
+    }
+
+    .menu-item p {
+        font-size: 0.7em;
+    }
+}

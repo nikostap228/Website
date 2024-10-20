@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация ресторана: адрес, телефон, email.">
+    <meta name="author" content="nikostapp">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Супер мега ресторан - Контакты</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Подключение React и ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel для трансформации JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- Контейнер для рендера React -->
+    <div id="root"></div>
+
+    <!-- JSX скрипт с React-кодом -->
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="app-container">
+                    <header>
+                        <div className="logo">
+                            <img src="images/icon.png" alt="Логотип" />
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="menu.html">Меню</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                    <main>
+                        <div className="two-column">
+                            <article className="contact-info">
+                                <h2>Контакты</h2>
+                                <p>Адрес: ул. Пушкина, 1, Владивосток</p>
+                                <p>Телефон: +7 (123) 456-78-90</p>
+                                <p>Email: supermegarestaurant@mail.ru</p>
+                                <p>Tg: @Babijonignat</p>
+                                <p>Inst: nik0stap</p>
+                                <p>Мы всегда рады видеть вас в нашем ресторане! Если у вас есть вопросы или предложения, не стесняйтесь связаться с нами.</p>
+                            </article>
+
+                            <aside className="sidebar">
+                                <h3>Карта</h3>
+                                <div className="map">
+                                    <img src="images/location.png" alt="Локация" />
+                                </div>
+                            </aside>
+                        </div>
+                    </main>
+
+                    <footer>
+                        <p>&copy; 2024 Супер мега ресторан. Все права защищены.</p>
+                    </footer>
+                </div>
+            );
+        }
+
+        // Рендеринг компонента App в контейнер с id "root"
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
+    <!-- Noscript -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=noscript.html" />
+    </noscript>
+</body>
+</html>

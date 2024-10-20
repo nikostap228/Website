@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Меню ресторана: разнообразные блюда и напитки.">
+    <meta name="author" content="nikostapp">
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <title>Супер мега ресторан - Меню</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Подключение React и ReactDOM -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Babel для преобразования JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <!-- Контейнер для React -->
+    <div id="root"></div>
+
+    <!-- JSX скрипт с React-кодом -->
+    <script type="text/babel">
+        function App() {
+            return (
+                <div className="app-container">
+                    <header>
+                        <div className="logo">
+                            <img src="images/icon.png" alt="Логотип" />
+                        </div>
+                        <nav>
+                            <ul>
+                                <li><a href="index.html">Главная</a></li>
+                                <li><a href="menu.html">Меню</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </header>
+
+                    <main>
+                        <div className="two-column">
+                            <article className="menu">
+                                <h2>Наше меню</h2>
+                                <div className="menu-items">
+                                    <div className="menu-item">
+                                        <img src="images/pizza.jpg" alt="Блюдо 1" />
+                                        <h3>Пицца</h3>
+                                        <p>Очень вкусная пицца.</p>
+                                    </div>
+                                    <div className="menu-item">
+                                        <img src="images/burger.jpg" alt="Блюдо 2" />
+                                        <h3>Бургер</h3>
+                                        <p>Очень вкусный бургер.</p>
+                                    </div>
+                                    <div className="menu-item">
+                                        <img src="images/pasta.jpg" alt="Блюдо 3" />
+                                        <h3>Паста</h3>
+                                        <p>Очень вкусная паста.</p>
+                                    </div>
+                                    <div className="menu-item">
+                                        <img src="images/cola.jpg" alt="Попить" />
+                                        <h3>Кока-кола</h3>
+                                        <p>Самая вкусная Кока-кола.</p>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </main>
+
+                    <footer>
+                        <p>&copy; 2024 Супер мега ресторан. Все права защищены.</p>
+                    </footer>
+                </div>
+            );
+        }
+
+        // Рендеринг компонента в контейнер root
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+
+    <!-- Noscript -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=noscript.html" />
+    </noscript>
+</body>
+</html>
