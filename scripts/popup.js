@@ -24,7 +24,7 @@ function validatePhoneNumber() {
         errorMessage.textContent = 'Введите корректный номер телефона (11 цифр)';
     } else {
         errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
-        // Закрываем плашку, если номер корректен
+        closePopup(); // Закрываем плашку, если номер корректен
         sendPhoneNumber(phoneNumber); // Отправляем номер телефона на сервер
     }
 }
@@ -32,14 +32,13 @@ function validatePhoneNumber() {
 // Функция для отправки номера телефона на сервер
 function sendPhoneNumber(phoneNumber) {
     $.ajax({
-        url: 'https://superrestik.onrender.com/index.html',
+        url: 'https://superrestik.onrender.com', // URL вашего API
         type: 'POST',
         data: { phone: phoneNumber }, // Данные для отправки
         success: function(response) {
             // Обработка успешного ответа сервера
             console.log('Ответ от сервера:', response);
             if (response.valid) {
-                closePopup(); // Закрываем плашку, если номер корректен
                 alert('Номер телефона успешно зарегистрирован!'); // Можете изменить это на свой текст
             } else {
                 const errorMessage = document.getElementById('errorMessage');
