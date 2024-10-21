@@ -7,7 +7,7 @@
     <meta name="author" content="nikostapp">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <title>Супер мега ресторан - Главная</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/styles.css">
     <script src="scripts/popup.js"></script>
     <!-- Подключение React и ReactDOM версии 18 -->
     <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
@@ -21,14 +21,16 @@
 <!-- Всплывающая плашка -->
 <div id="popup" class="popup">
     <div class="popup-content">
+        <button id="closeIcon" class="close-icon">&times;</button>
         <h2>Добро пожаловать!</h2>
         <p>Вы попали на страницу лучшего в мире ресторана!</p>
         <p>Введите ваш номер телефона для получения акций:</p>
         <input type="text" id="phoneInput" maxlength="11" placeholder="Введите номер телефона" />
-        <p  id="errorMessage" class="error-message">Номер телефона некорректен</p>
+        <p id="errorMessage" class="error-message">Номер телефона некорректен</p>
         <button id="closePopup">Закрыть</button>
     </div>
 </div>
+
 
     <!-- Контейнер для React -->
     <div id="root"></div>
@@ -40,13 +42,13 @@
                 <div className="app-container">
                     <header>
                         <div className="logo">
-                            <img src="images/icon.png" alt="Cafe Delight Logo" />
+                            <a href="index.html"><img src="images/icon.png" alt="Cafe Delight Logo" /></a>
                         </div>
                         <nav>
                             <ul>
                                 <li><a href="index.html">Главная</a></li>
                                 <li><a href="menu.html">Меню</a></li>
-                                <li><a href="contacts.html">Контакты</a></li>
+                                <li><a href="contacts.html">Контакты</a></li>                                
                                 <li><a href="feedback.html">Обратная связь</a></li>
                             </ul>
                         </nav>
