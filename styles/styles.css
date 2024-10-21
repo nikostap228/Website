@@ -160,7 +160,6 @@ button {
     font-size: 1rem; /* Изменил на rem для лучшей адаптивности */
     border-radius: 5px;
     cursor: pointer;
-    width: 100%; /* Кнопка занимает 100% ширины контейнера */
 }
 
 button:hover {
@@ -192,11 +191,6 @@ button:hover {
         font-size: 0.8rem; /* Уменьшил размер заголовка "Результаты" */
         word-wrap: break-word; /* Принудительно разрываем длинные слова */
     }
-}
-
-.content-container {
-    max-width: 1200px;
-    margin: 0 auto; /* Центрируем основной контент, но header и footer остаются растянутыми */
 }
 
 
@@ -250,7 +244,6 @@ button:hover {
     display: none;
     font-size: 11px;
 }
-
 
 .app-container {
     display: flex;
