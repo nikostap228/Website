@@ -5,6 +5,7 @@
 html, body {
     font-family: Arial, sans-serif;
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -12,10 +13,12 @@ html, body {
     min-height: 100vh;
 }
 
+
 #root {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
+    /* flex-grow: 1; */
+    width: 100%;
 }
 
 main {
@@ -24,6 +27,7 @@ main {
 
 /* Стили для шапки */
 header {
+    width: 100%;
     background-color: #333;
     color: white;
     padding: 10px 0; /* Добавляем отступы сверху и снизу */
@@ -36,6 +40,7 @@ header .logo img {
 }
 
 header nav ul {
+    justify-content: center;
     list-style: none;
     padding: 0;
     color: white;
@@ -43,6 +48,7 @@ header nav ul {
 }
 
 header nav ul li {
+    justify-content: center;
     display: inline;
     margin: 0 15px; /* Добавляем отступы между элементами меню */
     color: white;
@@ -50,11 +56,13 @@ header nav ul li {
 }
 
 header nav ul li a {
+    justify-content: center;
     color: white;
     text-decoration: none;
 }
 
 header nav ul li:last-child {
+    justify-content: center;
     display: block; /* Выводим "Обратную связь" на отдельную строку */
     margin-top: 20px; /* Добавляем отступ сверху для визуального разделения */
 }
@@ -186,6 +194,10 @@ button:hover {
     }
 }
 
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto; /* Центрируем основной контент, но header и footer остаются растянутыми */
+}
 
 
 /* Стили для плашки */
@@ -382,6 +394,7 @@ button:hover {
 
 /* Стили для подвала */
 footer {
+    width: 100%;
     background-color: #333;
     color: white;
     text-align: center;
