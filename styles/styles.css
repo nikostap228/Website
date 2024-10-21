@@ -15,10 +15,11 @@ html, body {
 
 
 #root {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    /* flex-grow: 1; */
-    width: 100%;
+    flex-grow: 1;
+    box-sizing: border-box;
 }
 
 main {
@@ -27,6 +28,7 @@ main {
 
 /* Стили для шапки */
 header {
+    max-width: 100%;
     width: 100%;
     background-color: #333;
     color: white;
@@ -80,6 +82,7 @@ main {
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Более мягкая тень */
     border-radius: 10px; /* Скругленные углы для контейнера */
+    max-width: 100%;
 }
 
 .feedback-page h1 {
@@ -164,6 +167,66 @@ button {
 
 button:hover {
     background-color: #1a1a1a;
+}
+
+/* Адаптивность для feedback */
+@media (max-width: 768px) {
+    .feedback-page {
+        padding: 15px;
+    }
+
+    .feedback-page h1 {
+        font-size: 2rem;
+    }
+
+    .poll {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .poll h3 {
+        font-size: 1.3rem;
+    }
+
+    .poll label {
+        font-size: 0.9rem;
+    }
+
+    button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .feedback-page {
+        padding: 10px;
+    }
+
+    .feedback-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .poll {
+        padding: 10px;
+    }
+
+    .poll h3 {
+        font-size: 1.2rem;
+    }
+
+    .poll label {
+        font-size: 0.8rem;
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+
+    .poll .poll-results {
+        font-size: 0.8rem;
+    }
 }
 
 /* Медиазапросы для улучшения адаптивности */
