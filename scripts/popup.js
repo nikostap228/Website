@@ -14,14 +14,14 @@ function closePopup() {
 function validatePhoneNumber() {
     const phoneInput = document.getElementById('phoneInput');
     const errorMessage = document.getElementById('errorMessage');
-    const phoneNumber = phoneInput.value.trim(); // Убираем пробелы в начале и конце
+    const phoneNumber = phoneInput.value.trim();
 
-    // Проверяем, что строка содержит только цифры
-    const isNumeric = /^[0-9]+$/.test(phoneNumber);
+    // Проверяем, что номер телефона соответствует маске
+    const phonePattern = /^\+7 \(9\d{2}\) \d{3} \d{2} \d{2}$/;
 
-    if (phoneNumber.length < 11 || !isNumeric) {
+    if (!phonePattern.test(phoneNumber)) {
         errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
-        errorMessage.textContent = 'Введите корректный номер телефона (11 цифр)';
+        errorMessage.textContent = 'Введите корректный номер телефона в формате +7 (9__) ___ __ __';
     } else {
         errorMessage.style.display = 'none'; // Скрываем сообщение об ошибке
         closePopup(); // Закрываем плашку, если номер корректен
@@ -39,20 +39,47 @@ function sendPhoneNumber(phoneNumber) {
             // Обработка успешного ответа сервера
             console.log('Ответ от сервера:', response);
             if (response.valid) {
-                alert('Номер телефона успешно зарегистрирован!'); // Можете изменить это на свой текст
+                alert('Номер телефона успешно зарегистрирован!');
             } else {
                 const errorMessage = document.getElementById('errorMessage');
                 errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
-                errorMessage.textContent = response.message; // Показываем сообщение от сервера
+                errorMessage.textContent = response.message;
             }
         },
         error: function(error) {
             console.error('Ошибка при отправке номера:', error);
             const errorMessage = document.getElementById('errorMessage');
             errorMessage.style.display = 'block'; // Показываем сообщение об ошибке
-            errorMessage.textContent = 'Ошибка при обработке запроса. Попробуйте позже.'; // Сообщение об ошибке
+            errorMessage.textContent = 'Ошибка при обработке запроса. Попробуйте позже.';
         }
     });
+}
+
+// Функция для применения маски при вводе
+function applyPhoneMask(input) {
+    let value = input.value.replace(/\D/g, ''); // Убираем все, кроме цифр
+    let formattedValue = '+7 ';
+    
+    // Если первая цифра не 9, пользователь начал вводить не мобильный номер
+    if (value.length > 1 && value[1] !== '9') {
+        input.value = ''; // Очищаем поле
+        return;
+    }
+
+    if (value.length > 1) {
+        formattedValue += '(' + value.substring(1, 4);
+    }
+    if (value.length >= 5) {
+        formattedValue += ') ' + value.substring(4, 7);
+    }
+    if (value.length >= 8) {
+        formattedValue += ' ' + value.substring(7, 9);
+    }
+    if (value.length >= 10) {
+        formattedValue += ' ' + value.substring(9, 11);
+    }
+
+    input.value = formattedValue;
 }
 
 // Показ плашки при загрузке страницы с задержкой
@@ -67,4 +94,10 @@ window.onload = function() {
 
     // Добавляем обработчик на крестик, чтобы просто закрывать плашку
     document.getElementById('closeIcon').addEventListener('click', closePopup);
+
+    // Добавляем маску для ввода телефона
+    const phoneInput = document.getElementById('phoneInput');
+    phoneInput.addEventListener('input', function () {
+        applyPhoneMask(phoneInput);
+    });
 };

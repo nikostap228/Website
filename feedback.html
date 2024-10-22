@@ -24,6 +24,7 @@
     function Poll({ question, options, pollId, onSubmit }) {
         const [selectedOption, setSelectedOption] = React.useState(null);
         const [result, setResult] = React.useState(null);
+        const [submitted, setSubmitted] = React.useState(false);
 
         const handleSubmit = () => {
             if (!selectedOption) {
@@ -31,27 +32,13 @@
                 return;
             }
             onSubmit(selectedOption, setResult, pollId);
+            setSubmitted(true);
         };
 
+        // Если уже отправлено, показываем результаты с рамкой
+        if (submitted && result) {
             return (
-        <div className="poll">
-            <div className="poll-questions">
-                <h3>{question}</h3>
-                {options.map((option, index) => (
-                    <label key={index}>
-                        <input
-                            type="radio"
-                            name={question}
-                            value={option}
-                            onChange={() => setSelectedOption(option)}
-                        />
-                        {option}
-                    </label>
-                ))}
-                <button onClick={handleSubmit}>Отправить</button>
-            </div>
-            <div className="poll-results">
-                {result && (
+                <div className="poll poll-results"> {/* Добавил класс poll для рамки */}
                     <div className="results">
                         <h4>Результаты:</h4>
                         {Object.keys(result).map((key, index) => (
@@ -60,11 +47,31 @@
                             </p>
                         ))}
                     </div>
-                )}
+                </div>
+            );
+        }
+
+        // Если не отправлено, показываем опрос
+        return (
+            <div className="poll">
+                <div className="poll-questions">
+                    <h3>{question}</h3>
+                    {options.map((option, index) => (
+                        <label key={index}>
+                            <input
+                                type="radio"
+                                name={question}
+                                value={option}
+                                onChange={() => setSelectedOption(option)}
+                            />
+                            {option}
+                        </label>
+                    ))}
+                    <button onClick={handleSubmit}>Отправить</button>
+                </div>
             </div>
-        </div>
-    );
-}
+        );
+    }
 
     function Feedback() {
         const polls = [
@@ -96,9 +103,7 @@
         ];
 
         const handleVote = (selectedOption, setResult, pollId) => {
-            // Имитация отправки на сервер через AJAX
             setTimeout(() => {
-                // Данные с результатами только для конкретного опроса
                 const mockResults = {
                     "poll1": {
                         "Пицца": 120,
@@ -125,10 +130,8 @@
                         "Нет": 40
                     }
                 };
-
-                // Возвращаем результат только для соответствующего опроса
                 setResult(mockResults[pollId]);
-            }, 10);
+            }, 500);
         };
 
         return (
@@ -146,7 +149,7 @@
                         </ul>
                     </nav>
                 </header>
-                
+
                 <main className="feedback-page">
                     <h1>Опросы - Обратная связь</h1>
                     {polls.map((poll) => (
@@ -167,10 +170,6 @@
         );
     }
 
-    // Рендеринг компонента в контейнер root
     const root = ReactDOM.createRoot(document.getElementById('root'));
     root.render(<Feedback />);
 </script>
-
-</body>
-</html>
